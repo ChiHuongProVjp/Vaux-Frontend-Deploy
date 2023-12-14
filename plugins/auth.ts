@@ -19,7 +19,11 @@ const auth: Plugin = ({ app, $auth, store }) => {
     }
 
     if (process.env.NODE_ENV !== 'development') {
-      config.baseURL = process.env.BE_API_URL
+      if (config?.isThirdPartyAPI) {
+        config.headers = null
+        config.url = config.url
+      }
+      else { config.url = process.env.BE_API_URL + '/api' + config.url }
     } else {
       if (config?.isThirdPartyAPI) {
         config.headers = null
