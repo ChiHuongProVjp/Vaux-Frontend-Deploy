@@ -100,7 +100,7 @@ export default {
   },
 
   axios: {
-    // proxy: process.env.NODE_ENV === 'development',
+    proxy: process.env.NODE_ENV === 'development',
     baseURL: process.env.BE_API_URL
   },
 
