@@ -13,6 +13,8 @@ const auth: Plugin = ({ app, $auth, store }) => {
 
   axiosInstance.interceptors.request.use((config: any) => {
     const token = app.$cookies.get('auth._token')
+    console.log('BE_API_URL:', process.env.BE_API_URL);
+    console.log('NODE_ENV:', process.env.NODE_ENV);
 
     if ($auth.loggedIn && token) {
       config.headers.Authorization = `Bearer ${token}`
