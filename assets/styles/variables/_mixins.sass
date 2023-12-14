@@ -1,0 +1,78 @@
+// - Custom mixins
+@mixin size($width, $height: $width)
+  width:  $width
+  height: $height
+
+@mixin centerAbsolute($pos)
+  position: absolute
+  @if $pos == "both"
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+  @else if $pos == "left"
+    left: 50%
+    transform: translateX(-50%)
+  @else if $pos == "top"
+    top: 50%
+    transform: translateY(-50%)
+
+//- Flexbox Toolkit
+@mixin flex-column
+  display:        flex
+  flex-direction: column
+
+@mixin flex-center
+  display:         flex
+  align-items:     center
+  justify-content: center
+
+
+@mixin flex-center-column
+  @include flex-center
+  flex-direction: column
+
+@mixin flex-center-vert
+  display:     flex
+  align-items: center
+
+
+@mixin flex-center-horiz
+  display:         flex
+  justify-content: center
+
+@mixin flex-center-space-between
+  display:         flex
+  align-items:     center
+  justify-content: space-between
+
+//- Ellipsis
+@mixin text-ellipsis($num-line)
+  word-break:         break-all
+  overflow:           hidden
+  display:            -webkit-box
+  -webkit-box-orient: vertical
+  -webkit-line-clamp: $num-line
+
+//- overflow-ellipsis 
+@mixin overflow-ellipsis($num-width)
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  max-width: $num-width  
+
+//- Responsive
+$mobile-width: 480px
+$tablet-width: 768px
+$desktop-width: 1024px
+
+@mixin mobile
+  @media (max-width: #{$mobile-width - 1px})
+    @content
+
+@mixin tablet
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})
+    @content
+
+@mixin desktop
+  @media (min-width: #{$desktop-width})
+    @content

@@ -1,0 +1,88 @@
+$header-table-color: #EAD9D2
+$table-bg-color: #FFFFFF
+  
+.airtag-datatable
+  background: $header-table-color !important
+  .p-datatable-thead > tr > th
+    background: $header-table-color !important
+    font-weight: $font-weight-bold !important
+    font-size: $font-size-small
+    letter-spacing: 1px
+    border: unset !important
+    text-transform: uppercase
+    color: $text-color-800 !important
+    white-space: nowrap
+    &:first-child 
+      border-radius: 10px 0 0 10px
+    &:last-child 
+      border-radius: 0 10px 10px 0
+  
+  .p-datatable-wrapper
+    flex: 1
+    background: $table-bg-color
+    .p-datatable-table
+      position: relative
+      .p-text-right
+        text-align: right
+        .p-column-header-content
+          justify-content: end
+      .p-text-left
+        text-align: left
+        .p-column-header-content
+          justify-content: start
+      .p-text-center
+        text-align: center
+        .p-column-header-content
+          justify-content: center
+      .p-datatable-thead
+        position: sticky
+        top: 0
+        z-index: 1
+      .p-datatable-tbody
+        tr:nth-child(even):not(.p-highlight)
+          background-color : #FBF8F7
+  .p-datatable-footer
+    background-color: $table-bg-color
+    min-height: 65px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    .p-paginator 
+      > button
+        border: none
+        color: #151622
+      .p-paginator-pages > button
+        border: none
+        font-size: $font-size-base
+        font-weight: 700
+        color: #D2D2E0
+      .p-highlight
+        background: $table-bg-color
+        color: $primary !important
+
+table .p-datatable-thead
+  background: #ead9d2
+
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even):not(.p-highlight)
+  background-color: #fbf8f7 !important
+
+.custom-paginator
+  min-height: 65px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  .p-paginator 
+    button
+      border: none
+      color: #151622
+      border-radius: 50% !important
+      background: $transparent
+    .p-paginator-pages > button
+      border: none
+      font-size: $font-size-base
+      border-radius: 50% !important
+      font-weight: 700
+      color: #D2D2E0
+    .p-highlight
+      background: $primary !important
+      color: $white !important
